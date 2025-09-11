@@ -7,11 +7,18 @@ import Icon from "@/components/ui/icon";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSelector } from "@/components/ui/language-selector";
+import { useAuth } from "@/contexts/AuthContext";
+import { LoginDialog } from "@/components/auth/LoginDialog";
+import { RegisterDialog } from "@/components/auth/RegisterDialog";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const { t, language } = useLanguage();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -48,10 +55,52 @@ export default function Index() {
             </div>
             <div className="flex items-center space-x-4">
               <LanguageSelector />
-              <Button size="sm" className="relative overflow-hidden group">
-                <span className="relative z-10">{t('nav.getStarted')}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
+              {user ? (
+                <div className="flex items-center space-x-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.avatar} />
+                    <AvatarFallback className="bg-gradient-to-br from-primary to-blue-600 text-white text-xs">
+                      {user.firstName[0]}{user.lastName[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={() => window.location.href = '/dashboard'}
+                    className="border-primary/50 hover:border-primary hover:bg-primary/10"
+                  >
+                    <Icon name="LayoutDashboard" className="mr-2 h-4 w-4" />
+                    Dashboard
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="ghost"
+                    onClick={logout}
+                    className="text-muted-foreground hover:text-primary"
+                  >
+                    <Icon name="LogOut" className="h-4 w-4" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Button 
+                    size="sm" 
+                    variant="ghost"
+                    onClick={() => setShowLogin(true)}
+                    className="text-muted-foreground hover:text-primary"
+                  >
+                    Sign In
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    onClick={() => setShowRegister(true)}
+                    className="relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">{t('nav.getStarted')}</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -727,6 +776,25 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Auth Dialogs */}
+      <LoginDialog 
+        isOpen={showLogin}
+        onClose={() => setShowLogin(false)}
+        onSwitchToRegister={() => {
+          setShowLogin(false);
+          setShowRegister(true);
+        }}
+      />
+      
+      <RegisterDialog 
+        isOpen={showRegister}
+        onClose={() => setShowRegister(false)}
+        onSwitchToLogin={() => {
+          setShowRegister(false);
+          setShowLogin(true);
+        }}
+      />
     </div>
   );
 }
