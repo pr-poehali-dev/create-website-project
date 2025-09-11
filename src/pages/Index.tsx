@@ -5,10 +5,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSelector } from "@/components/ui/language-selector";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -31,22 +34,25 @@ export default function Index() {
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-muted-foreground hover:text-primary transition-all duration-300 relative group">
-                Services
+                {t('nav.services')}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 relative group">
-                About
+                {t('nav.about')}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-all duration-300 relative group">
-                Contact
+                {t('nav.contact')}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </div>
-            <Button size="sm" className="relative overflow-hidden group">
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Button>
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+              <Button size="sm" className="relative overflow-hidden group">
+                <span className="relative z-10">{t('nav.getStarted')}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
@@ -72,44 +78,38 @@ export default function Index() {
         <div className="container mx-auto px-4 relative z-10">
           <div className={`max-w-5xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <div className="mb-8">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+              <h1 className={`font-bold mb-8 leading-tight ${
+                language === 'zh' ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-6xl md:text-7xl lg:text-8xl'
+              }`}>
                 <span className="block bg-gradient-to-r from-white via-primary to-blue-400 bg-clip-text text-transparent animate-gradient-shift bg-300% bg-size-200">
-                  Drive Digital
-                </span>
-                <span className="block bg-gradient-to-r from-primary via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-shift bg-300% bg-size-200" style={{ animationDelay: '0.5s' }}>
-                  Transformation
-                </span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl mt-4 text-muted-foreground">
-                  with AI & Cryptographic Security
+                  {t('hero.title')}
                 </span>
               </h1>
             </div>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-              ECOL delivers <span className="text-primary font-semibold">cutting-edge</span> Artificial Intelligence and cryptographic solutions from 
-              <span className="text-blue-400 font-semibold"> Hong Kong</span> to the world. We empower businesses to innovate, optimize operations, 
-              and build <span className="text-purple-400 font-semibold">unbreakable trust</span> in the digital age.
+              {t('hero.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button size="lg" className="text-lg px-10 py-4 relative overflow-hidden group bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-purple-600 transition-all duration-500 shadow-2xl shadow-primary/25">
                 <Icon name="MessageSquare" className="mr-3 h-6 w-6" />
-                <span className="relative z-10">Discuss Your Project</span>
+                <span className="relative z-10">{t('hero.cta1')}</span>
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-10 py-4 border-2 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all duration-300">
                 <Icon name="Calendar" className="mr-3 h-6 w-6" />
-                Request a Consultation
+                {t('hero.cta2')}
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
               {[
-                { value: "500+", label: "Projects Delivered" },
-                { value: "50+", label: "Global Clients" },
-                { value: "99.9%", label: "Uptime SLA" },
-                { value: "24/7", label: "Support" }
+                { value: "500+", label: t('hero.stat1') },
+                { value: "50+", label: t('hero.stat2') },
+                { value: "99.9%", label: t('hero.stat3') },
+                { value: "24/7", label: t('hero.stat4') }
               ].map((stat, index) => (
                 <div key={index} className="text-center group">
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
@@ -131,10 +131,10 @@ export default function Index() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
-              Our Core Services
+              {t('services.title')}
             </h2>
             <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
-              Comprehensive solutions designed for <span className="text-primary">global markets</span> with enterprise-grade reliability
+              {t('services.subtitle')}
             </p>
           </div>
           
@@ -142,26 +142,26 @@ export default function Index() {
             {[
               {
                 icon: "Brain",
-                title: "AI Consulting & Strategy",
-                description: "Strategic guidance for AI implementation and digital transformation initiatives.",
+                title: t('services.ai.title'),
+                description: t('services.ai.description'),
                 gradient: "from-blue-500/20 to-purple-500/20"
               },
               {
                 icon: "Code",
-                title: "AI Development & Integration", 
-                description: "Custom AI solutions tailored to your business needs and technical requirements.",
+                title: t('services.dev.title'),
+                description: t('services.dev.description'),
                 gradient: "from-green-500/20 to-blue-500/20"
               },
               {
                 icon: "Shield",
-                title: "Cryptography & Digital Security",
-                description: "Advanced security solutions and cryptographic implementations for enterprise.",
+                title: t('services.security.title'),
+                description: t('services.security.description'),
                 gradient: "from-red-500/20 to-pink-500/20"
               },
               {
                 icon: "Globe",
-                title: "Global Support & Scaling",
-                description: "Worldwide deployment and scaling with international compliance standards.",
+                title: t('services.global.title'),
+                description: t('services.global.description'),
                 gradient: "from-purple-500/20 to-indigo-500/20"
               }
             ].map((service, index) => (
@@ -198,35 +198,35 @@ export default function Index() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-              Why Choose ECOL
+              {t('advantages.title')}
             </h2>
-            <p className="text-muted-foreground text-xl">Strategic advantages that set us apart</p>
+            <p className="text-muted-foreground text-xl">{t('advantages.subtitle')}</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { 
                 icon: "Zap", 
-                title: "Unmatched Efficiency", 
-                description: "Streamlined processes and rapid deployment",
+                title: t('advantages.efficiency.title'), 
+                description: t('advantages.efficiency.description'),
                 color: "from-yellow-400 to-orange-500"
               },
               { 
                 icon: "TrendingDown", 
-                title: "Significant Cost Reduction", 
-                description: "Optimized solutions that reduce operational costs",
+                title: t('advantages.cost.title'), 
+                description: t('advantages.cost.description'),
                 color: "from-green-400 to-emerald-500"
               },
               { 
                 icon: "BarChart3", 
-                title: "Data-Driven Decisions", 
-                description: "Advanced analytics for informed business choices",
+                title: t('advantages.decisions.title'), 
+                description: t('advantages.decisions.description'),
                 color: "from-blue-400 to-cyan-500"
               },
               { 
                 icon: "CheckCircle", 
-                title: "Global Compliance & Trust", 
-                description: "GDPR, APAC regulations and international standards",
+                title: t('advantages.compliance.title'), 
+                description: t('advantages.compliance.description'),
                 color: "from-purple-400 to-pink-500"
               }
             ].map((advantage, index) => (
@@ -250,11 +250,10 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
-              Our Global Service Portfolio
+              {t('portfolio.title')}
             </h2>
             <p className="text-muted-foreground text-xl max-w-4xl mx-auto leading-relaxed">
-              End-to-end development and integration services, tailored to meet the challenges 
-              and regulations of <span className="text-primary">international markets</span>
+              {t('portfolio.subtitle')}
             </p>
           </div>
 
@@ -264,11 +263,10 @@ export default function Index() {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-purple-400"></div>
               <CardHeader>
                 <CardTitle className="text-3xl text-center mb-4 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-                  Technology & Partnership Ecosystem
+                  {t('portfolio.ecosystem.title')}
                 </CardTitle>
                 <CardDescription className="text-center max-w-5xl mx-auto text-lg leading-relaxed">
-                  Strategic partnerships with <span className="text-primary font-semibold">leading global technology providers</span>, 
-                  ensuring best-in-class solutions and maximum reliability for our clients
+                  {t('portfolio.ecosystem.subtitle')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-8">
@@ -276,7 +274,7 @@ export default function Index() {
                   <div className="group">
                     <h4 className="font-bold mb-6 text-blue-400 text-lg flex items-center">
                       <Icon name="Cpu" className="mr-2 h-5 w-5" />
-                      International AI Leaders
+                      {t('portfolio.partners.ai')}
                     </h4>
                     <ul className="space-y-3">
                       {["Microsoft Azure AI", "OpenAI", "Meta (Llama)", "Amazon Web Services (AWS)"].map((partner, i) => (
@@ -290,7 +288,7 @@ export default function Index() {
                   <div className="group">
                     <h4 className="font-bold mb-6 text-green-400 text-lg flex items-center">
                       <Icon name="Cloud" className="mr-2 h-5 w-5" />
-                      Global Cloud & Security Giants
+                      {t('portfolio.partners.cloud')}
                     </h4>
                     <ul className="space-y-3">
                       {["Google Cloud Platform", "Palo Alto Networks", "Cloudflare"].map((partner, i) => (
@@ -304,7 +302,7 @@ export default function Index() {
                   <div className="group">
                     <h4 className="font-bold mb-6 text-purple-400 text-lg flex items-center">
                       <Icon name="Zap" className="mr-2 h-5 w-5" />
-                      Chinese Tech Innovators
+                      {t('portfolio.partners.chinese')}
                     </h4>
                     <ul className="space-y-3">
                       {["Huawei", "Tencent Cloud", "Baidu AI", "SenseTime"].map((partner, i) => (
@@ -328,7 +326,7 @@ export default function Index() {
                   <div className="p-2 bg-gradient-to-br from-primary to-blue-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
                     <Icon name="Brain" className="h-8 w-8 text-white" />
                   </div>
-                  Artificial Intelligence & Machine Learning
+                  {t('portfolio.ai.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -355,7 +353,7 @@ export default function Index() {
                   <div className="p-2 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
                     <Icon name="Shield" className="h-8 w-8 text-white" />
                   </div>
-                  Cryptographic Services & Digital Security
+                  {t('portfolio.crypto.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -382,7 +380,7 @@ export default function Index() {
           <Card className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 border border-primary/20">
             <CardHeader>
               <CardTitle className="text-3xl text-center bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-                Our Global Process
+                {t('portfolio.process.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -423,12 +421,11 @@ export default function Index() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-primary to-blue-400 bg-clip-text text-transparent">
-                ECOL: Your Global Technology Partner
+                {t('about.title')}
               </h2>
-              <p className="text-2xl text-primary mb-4">Based in Hong Kong</p>
+              <p className="text-2xl text-primary mb-4">{t('about.location')}</p>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                A team of experts specializing in AI and cryptographic security, 
-                providing innovative, <span className="text-primary">world-class solutions</span> for businesses operating on the international stage
+                {t('about.subtitle')}
               </p>
             </div>
 
@@ -437,14 +434,12 @@ export default function Index() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-3">
                     <Icon name="Target" className="h-8 w-8 text-primary group-hover:animate-pulse" />
-                    Our Mission
+                    {t('about.mission.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    To empower companies worldwide to streamline operations, make smarter decisions, 
-                    and protect their critical assets through <span className="text-primary font-semibold">transformative and secure digital technologies</span>, 
-                    delivered to the highest standard of excellence.
+                    {t('about.mission.description')}
                   </p>
                 </CardContent>
               </Card>
@@ -453,14 +448,12 @@ export default function Index() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-3">
                     <Icon name="MapPin" className="h-8 w-8 text-green-400 group-hover:animate-pulse" />
-                    Strategic Hong Kong Hub
+                    {t('about.hub.title')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    Our strategic location in Hong Kong and collaborative relationships with major 
-                    international and Chinese technology firms provide us with <span className="text-green-400 font-semibold">unique market insights</span>, 
-                    advanced technological capabilities, and robust infrastructure.
+                    {t('about.hub.description')}
                   </p>
                 </CardContent>
               </Card>
@@ -469,7 +462,7 @@ export default function Index() {
             <Card className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20">
               <CardHeader>
                 <CardTitle className="text-3xl text-center mb-8 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
-                  Why Choose ECOL?
+                  {t('about.why.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -531,11 +524,10 @@ export default function Index() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-                Get in Touch
+                {t('contact.title')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                Partner with us to leverage <span className="text-primary">world-class technology and expertise</span>. 
-                Let's build a secure and intelligent future for your business, together.
+                {t('contact.subtitle')}
               </p>
             </div>
 
@@ -544,7 +536,7 @@ export default function Index() {
                 <div>
                   <h3 className="text-3xl font-bold mb-8 flex items-center gap-3">
                     <Icon name="Phone" className="h-8 w-8 text-primary" />
-                    Contact Information
+                    {t('contact.info.title')}
                   </h3>
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4 group hover:bg-primary/5 p-4 rounded-xl transition-all duration-300">
@@ -552,8 +544,8 @@ export default function Index() {
                         <Icon name="MapPin" className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold">Hong Kong SAR, China</p>
-                        <p className="text-sm text-muted-foreground">Global Tech Hub</p>
+                        <p className="font-semibold">{t('contact.location')}</p>
+                        <p className="text-sm text-muted-foreground">{t('contact.location.subtitle')}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4 group hover:bg-primary/5 p-4 rounded-xl transition-all duration-300">
@@ -561,8 +553,8 @@ export default function Index() {
                         <Icon name="Mail" className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold">contact@ecol.tech</p>
-                        <p className="text-sm text-muted-foreground">Business Inquiries</p>
+                        <p className="font-semibold">{t('contact.email')}</p>
+                        <p className="text-sm text-muted-foreground">{t('contact.email.subtitle')}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4 group hover:bg-primary/5 p-4 rounded-xl transition-all duration-300">
@@ -570,8 +562,8 @@ export default function Index() {
                         <Icon name="Phone" className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold">+852 1234 5678</p>
-                        <p className="text-sm text-muted-foreground">24/7 Support</p>
+                        <p className="font-semibold">{t('contact.phone')}</p>
+                        <p className="text-sm text-muted-foreground">{t('contact.phone.subtitle')}</p>
                       </div>
                     </div>
                   </div>
@@ -581,7 +573,7 @@ export default function Index() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <Icon name="Clock" className="h-6 w-6 text-primary" />
-                      Business Hours
+                      {t('contact.hours.title')}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -607,39 +599,39 @@ export default function Index() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-3">
                     <Icon name="Send" className="h-8 w-8 text-primary" />
-                    Send us a Message
+                    {t('contact.form.title')}
                   </CardTitle>
                   <CardDescription className="text-lg">
-                    We'll get back to you within <span className="text-primary font-semibold">24 hours</span>
+                    {t('contact.form.subtitle')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName" className="text-sm font-semibold">First Name</Label>
+                      <Label htmlFor="firstName" className="text-sm font-semibold">{t('contact.form.firstName')}</Label>
                       <Input id="firstName" placeholder="John" className="mt-2 bg-background/50 border-primary/20 focus:border-primary" />
                     </div>
                     <div>
-                      <Label htmlFor="lastName" className="text-sm font-semibold">Last Name</Label>
+                      <Label htmlFor="lastName" className="text-sm font-semibold">{t('contact.form.lastName')}</Label>
                       <Input id="lastName" placeholder="Doe" className="mt-2 bg-background/50 border-primary/20 focus:border-primary" />
                     </div>
                   </div>
                   
                   <div>
-                    <Label htmlFor="email" className="text-sm font-semibold">Email</Label>
+                    <Label htmlFor="email" className="text-sm font-semibold">{t('contact.form.email')}</Label>
                     <Input id="email" type="email" placeholder="john@company.com" className="mt-2 bg-background/50 border-primary/20 focus:border-primary" />
                   </div>
                   
                   <div>
-                    <Label htmlFor="company" className="text-sm font-semibold">Company</Label>
+                    <Label htmlFor="company" className="text-sm font-semibold">{t('contact.form.company')}</Label>
                     <Input id="company" placeholder="Your Company" className="mt-2 bg-background/50 border-primary/20 focus:border-primary" />
                   </div>
                   
                   <div>
-                    <Label htmlFor="message" className="text-sm font-semibold">Message</Label>
+                    <Label htmlFor="message" className="text-sm font-semibold">{t('contact.form.message')}</Label>
                     <Textarea 
                       id="message" 
-                      placeholder="Tell us about your project and how we can help you achieve your goals..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                       rows={5}
                       className="mt-2 bg-background/50 border-primary/20 focus:border-primary"
                     />
@@ -647,7 +639,7 @@ export default function Index() {
                   
                   <Button className="w-full text-lg py-6 relative overflow-hidden group bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-purple-600">
                     <Icon name="Send" className="mr-3 h-5 w-5" />
-                    <span className="relative z-10">Send Message</span>
+                    <span className="relative z-10">{t('contact.form.send')}</span>
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
                   </Button>
                 </CardContent>
@@ -686,7 +678,7 @@ export default function Index() {
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-xl text-primary">Services</h4>
+              <h4 className="font-bold mb-6 text-xl text-primary">{t('footer.services')}</h4>
               <ul className="space-y-3">
                 {["AI Consulting", "AI Development", "Cryptography", "Digital Security", "Global Support"].map((item, i) => (
                   <li key={i}>
@@ -700,7 +692,7 @@ export default function Index() {
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-xl text-primary">Company</h4>
+              <h4 className="font-bold mb-6 text-xl text-primary">{t('footer.company')}</h4>
               <ul className="space-y-3">
                 {["About Us", "Our Team", "Careers", "News", "Partners"].map((item, i) => (
                   <li key={i}>
@@ -714,7 +706,7 @@ export default function Index() {
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-xl text-primary">Legal</h4>
+              <h4 className="font-bold mb-6 text-xl text-primary">{t('footer.legal')}</h4>
               <ul className="space-y-3">
                 {["Privacy Policy", "Terms of Service", "GDPR Compliance", "Security", "Cookies"].map((item, i) => (
                   <li key={i}>
@@ -730,9 +722,7 @@ export default function Index() {
           
           <div className="border-t border-gray-700 pt-8 text-center">
             <p className="text-gray-400 text-lg">
-              &copy; 2024 ECOL. All rights reserved. | Made with 
-              <span className="text-red-400 mx-1 animate-pulse">❤️</span> 
-              in <span className="text-primary font-semibold">Hong Kong</span>
+              {t('footer.copyright')}
             </p>
           </div>
         </div>
