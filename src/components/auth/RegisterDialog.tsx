@@ -8,12 +8,13 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface RegisterDialogProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToLogin: () => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onSwitchToLogin?: () => void;
 }
 
-export const RegisterDialog = ({ isOpen, onClose, onSwitchToLogin }: RegisterDialogProps) => {
+export const RegisterDialog = ({ open, onOpenChange, onSwitchToLogin }: RegisterDialogProps) => {
+  const onClose = () => onOpenChange(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -61,7 +62,7 @@ export const RegisterDialog = ({ isOpen, onClose, onSwitchToLogin }: RegisterDia
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">

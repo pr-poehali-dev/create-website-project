@@ -129,8 +129,22 @@ export function Header() {
       </header>
 
       {/* Auth Modals */}
-      <LoginDialog open={showLogin} onOpenChange={setShowLogin} />
-      <RegisterDialog open={showRegister} onOpenChange={setShowRegister} />
+      <LoginDialog 
+        open={showLogin} 
+        onOpenChange={setShowLogin}
+        onSwitchToRegister={() => {
+          setShowLogin(false);
+          setShowRegister(true);
+        }}
+      />
+      <RegisterDialog 
+        open={showRegister} 
+        onOpenChange={setShowRegister}
+        onSwitchToLogin={() => {
+          setShowRegister(false);
+          setShowLogin(true);
+        }}
+      />
     </>
   );
 }
