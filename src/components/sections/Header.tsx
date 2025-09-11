@@ -6,6 +6,7 @@ import { LoginDialog } from "@/components/auth/LoginDialog";
 import { RegisterDialog } from "@/components/auth/RegisterDialog";
 import { ECOLLogo } from "@/components/branding/ECOLLogo";
 import Icon from "@/components/ui/icon";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 export function Header() {
   const { t } = useLanguage();
@@ -55,6 +56,7 @@ export function Header() {
 
             {/* Actions */}
             <div className="flex items-center space-x-4">
+              <ThemeToggle />
               <div className="hidden sm:flex items-center space-x-2">
                 <Button 
                   variant="ghost" 
