@@ -7,18 +7,42 @@ import Icon from "@/components/ui/icon";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSelector } from "@/components/ui/language-selector";
+import { useAuth } from "@/contexts/AuthContext";
+import { LoginDialog } from "@/components/auth/LoginDialog";
+import { RegisterDialog } from "@/components/auth/RegisterDialog";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { TeamSection } from "@/components/team/TeamSection";
+import { CallbackModal } from "@/components/marketing/CallbackModal";
+import { ECOLLogo } from "@/components/branding/ECOLLogo";
+import { NewsFeed } from "@/components/news/NewsFeed";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+  const [showCallback, setShowCallback] = useState(false);
   const { t, language } = useLanguage();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     setIsVisible(true);
+    
+    // Show callback modal after 45 seconds for non-authenticated users
+    if (!user) {
+      const timer = setTimeout(() => {
+        setShowCallback(true);
+      }, 45000);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        clearTimeout(timer);
+      };
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [user]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -26,12 +50,7 @@ export default function Index() {
       <nav className="border-b border-white/10 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center animate-glow">
-                <span className="text-white font-bold text-xl">E</span>
-              </div>
-              <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">ECOL</span>
-            </div>
+            <ECOLLogo variant="compact" size="md" />
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-muted-foreground hover:text-primary transition-all duration-300 relative group">
                 {t('nav.services')}
@@ -48,10 +67,52 @@ export default function Index() {
             </div>
             <div className="flex items-center space-x-4">
               <LanguageSelector />
-              <Button size="sm" className="relative overflow-hidden group">
-                <span className="relative z-10">{t('nav.getStarted')}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
+              {user ? (
+                <div className="flex items-center space-x-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.avatar} />
+                    <AvatarFallback className="bg-gradient-to-br from-primary to-blue-600 text-white text-xs">
+                      {user.firstName[0]}{user.lastName[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={() => window.location.href = '/dashboard'}
+                    className="border-primary/50 hover:border-primary hover:bg-primary/10"
+                  >
+                    <Icon name="LayoutDashboard" className="mr-2 h-4 w-4" />
+                    Dashboard
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="ghost"
+                    onClick={logout}
+                    className="text-muted-foreground hover:text-primary"
+                  >
+                    <Icon name="LogOut" className="h-4 w-4" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Button 
+                    size="sm" 
+                    variant="ghost"
+                    onClick={() => setShowLogin(true)}
+                    className="text-muted-foreground hover:text-primary"
+                  >
+                    Sign In
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    onClick={() => setShowRegister(true)}
+                    className="relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">{t('nav.getStarted')}</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -649,6 +710,16 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <TeamSection />
+
+      {/* News Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <NewsFeed variant="compact" maxItems={6} showFilters={false} />
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 to-black text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
@@ -727,6 +798,30 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Auth Dialogs */}
+      <LoginDialog 
+        isOpen={showLogin}
+        onClose={() => setShowLogin(false)}
+        onSwitchToRegister={() => {
+          setShowLogin(false);
+          setShowRegister(true);
+        }}
+      />
+      
+      <RegisterDialog 
+        isOpen={showRegister}
+        onClose={() => setShowRegister(false)}
+        onSwitchToLogin={() => {
+          setShowRegister(false);
+          setShowLogin(true);
+        }}
+      />
+
+      <CallbackModal
+        isOpen={showCallback}
+        onClose={() => setShowCallback(false)}
+      />
     </div>
   );
 }
