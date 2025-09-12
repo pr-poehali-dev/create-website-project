@@ -8,13 +8,12 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LoginDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  onSwitchToRegister?: () => void;
+  isOpen: boolean;
+  onClose: () => void;
+  onSwitchToRegister: () => void;
 }
 
-export const LoginDialog = ({ open, onOpenChange, onSwitchToRegister }: LoginDialogProps) => {
-  const onClose = () => onOpenChange(false);
+export const LoginDialog = ({ isOpen, onClose, onSwitchToRegister }: LoginDialogProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -36,7 +35,7 @@ export const LoginDialog = ({ open, onOpenChange, onSwitchToRegister }: LoginDia
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
