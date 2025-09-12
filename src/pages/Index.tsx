@@ -13,7 +13,6 @@ import { RegisterDialog } from "@/components/auth/RegisterDialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TeamSection } from "@/components/team/TeamSection";
 import { CallbackModal } from "@/components/marketing/CallbackModal";
-import { ECOLLogo } from "@/components/branding/ECOLLogo";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
@@ -49,7 +48,12 @@ export default function Index() {
       <nav className="border-b border-white/10 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <ECOLLogo variant="compact" size="md" />
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center animate-glow">
+                <span className="text-white font-bold text-xl">E</span>
+              </div>
+              <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">ECOL</span>
+            </div>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-muted-foreground hover:text-primary transition-all duration-300 relative group">
                 {t('nav.services')}
