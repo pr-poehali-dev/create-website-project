@@ -21,10 +21,10 @@ export default function About() {
       <section className="relative py-24 overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-secondary/5">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {t('about.title')}
+            {t('page.about.title') || 'About ECOL'}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            {t('about.subtitle')}
+            {t('page.about.subtitle') || 'International trading company specializing in high-quality products from Asia'}
           </p>
         </div>
       </section>
@@ -34,11 +34,11 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">{t('about.story.title')}</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('page.about.story.title')}</h2>
               <div className="space-y-4 text-muted-foreground">
-                <p>{t('about.story.paragraph1')}</p>
-                <p>{t('about.story.paragraph2')}</p>
-                <p>{t('about.story.paragraph3')}</p>
+                <p>{t('page.about.story.paragraph1')}</p>
+                <p>{t('page.about.story.paragraph2')}</p>
+                <p>{t('page.about.story.paragraph3')}</p>
               </div>
             </div>
             <div className="relative">
@@ -57,8 +57,8 @@ export default function About() {
               <p className="text-muted-foreground">{t('about.mission.description')}</p>
             </div>
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">{t('about.vision.title')}</h3>
-              <p className="text-muted-foreground">{t('about.vision.description')}</p>
+              <h3 className="text-2xl font-bold mb-4">{t('page.about.vision.title')}</h3>
+              <p className="text-muted-foreground">{t('page.about.vision.description')}</p>
             </div>
           </div>
         </div>

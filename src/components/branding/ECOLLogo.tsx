@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface EKOLLogoProps {
+interface ECOLLogoProps {
   variant?: 'default' | 'compact' | 'icon-only';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   showImage?: boolean;
 }
 
-export const EKOLLogo: React.FC<EKOLLogoProps> = ({ 
+export const ECOLLogo: React.FC<ECOLLogoProps> = ({ 
   variant = 'default', 
   size = 'md',
   showImage = false
@@ -30,7 +30,7 @@ export const EKOLLogo: React.FC<EKOLLogoProps> = ({
       <div className="flex items-center space-x-3">
         <img 
           src="/img/52c96ca9-e683-4bf9-9cfa-7c6043346fb6.jpg" 
-          alt="EKOL Logo Design" 
+          alt="ECOL Logo Design" 
           className={`${logoSizes[size]} object-contain`}
         />
       </div>
@@ -52,7 +52,7 @@ export const EKOLLogo: React.FC<EKOLLogoProps> = ({
           <span className={`text-white font-bold ${sizeClasses[size].split(' ')[0]}`}>E</span>
         </div>
         <span className={`font-bold ${sizeClasses[size].split(' ')[0]} bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent`}>
-          EKOL
+          ECOL
         </span>
       </div>
     );
@@ -67,7 +67,7 @@ export const EKOLLogo: React.FC<EKOLLogoProps> = ({
       </div>
       <div className="flex flex-col">
         <span className={`font-bold ${sizeClasses[size].split(' ')[0]} bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent leading-tight`}>
-          EKOL
+          ECOL
         </span>
         {size !== 'sm' && (
           <span className="text-xs text-muted-foreground font-medium tracking-wider">
@@ -80,13 +80,13 @@ export const EKOLLogo: React.FC<EKOLLogoProps> = ({
 };
 
 // Brand showcase component
-export const EKOLBrandShowcase: React.FC = () => {
+export const ECOLBrandShowcase: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-background to-primary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-primary to-blue-400 bg-clip-text text-transparent">
-            EKOL Brand Identity
+            ECOL Brand Identity
           </h2>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto">
             Professional branding that represents innovation, trust, and technological excellence
@@ -100,17 +100,17 @@ export const EKOLBrandShowcase: React.FC = () => {
             
             <div className="bg-card border border-primary/20 rounded-xl p-8 text-center space-y-6">
               <h4 className="font-semibold text-primary mb-4">Primary Logo</h4>
-              <EKOLLogo size="lg" />
+              <ECOLLogo size="lg" />
             </div>
 
             <div className="bg-card border border-primary/20 rounded-xl p-8 text-center space-y-6">
               <h4 className="font-semibold text-primary mb-4">Compact Version</h4>
-              <EKOLLogo variant="compact" size="lg" />
+              <ECOLLogo variant="compact" size="lg" />
             </div>
 
             <div className="bg-card border border-primary/20 rounded-xl p-8 text-center space-y-6">
               <h4 className="font-semibold text-primary mb-4">Icon Only</h4>
-              <EKOLLogo variant="icon-only" size="lg" />
+              <ECOLLogo variant="icon-only" size="lg" />
             </div>
           </div>
 
@@ -121,22 +121,22 @@ export const EKOLBrandShowcase: React.FC = () => {
             <div className="bg-card border border-primary/20 rounded-xl p-8 space-y-8">
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">Extra Large</p>
-                <EKOLLogo size="xl" />
+                <ECOLLogo size="xl" />
               </div>
               
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">Large</p>
-                <EKOLLogo size="lg" />
+                <ECOLLogo size="lg" />
               </div>
               
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">Medium</p>
-                <EKOLLogo size="md" />
+                <ECOLLogo size="md" />
               </div>
               
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">Small</p>
-                <EKOLLogo size="sm" />
+                <ECOLLogo size="sm" />
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@ export const EKOLBrandShowcase: React.FC = () => {
               <h4 className="font-semibold text-primary mb-4">Professional Design</h4>
               <img 
                 src="/img/52c96ca9-e683-4bf9-9cfa-7c6043346fb6.jpg" 
-                alt="EKOL Professional Logo Design" 
+                alt="ECOL Professional Logo Design" 
                 className="w-full h-32 object-contain bg-gradient-to-r from-primary/10 to-blue-500/10 rounded-lg p-4"
               />
             </div>
@@ -158,14 +158,14 @@ export const EKOLBrandShowcase: React.FC = () => {
               <h4 className="font-semibold text-primary mb-4">Tech Identity</h4>
               <img 
                 src="/img/82acdbd0-ffd4-4d81-bfbb-8c40082dc8c6.jpg" 
-                alt="EKOL Tech Brand Identity" 
+                alt="ECOL Tech Brand Identity" 
                 className="w-full h-32 object-contain bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg p-4"
               />
             </div>
 
             <div className="bg-gradient-to-r from-primary via-blue-600 to-purple-600 rounded-xl p-8 text-center">
               <h4 className="font-semibold text-white mb-4">Dark Background</h4>
-              <EKOLLogo size="lg" />
+              <ECOLLogo size="lg" />
             </div>
           </div>
         </div>
