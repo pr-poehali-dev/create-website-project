@@ -1,12 +1,8 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/ui/animated-section";
 import Icon from "@/components/ui/icon";
 
 export function Hero() {
-  const { t } = useLanguage();
-
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background gradient */}
@@ -17,29 +13,25 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              {t('hero.title')}
+              Поехали!
             </h1>
           </AnimatedSection>
           
           <AnimatedSection delay={0.1}>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              {t('hero.subtitle')}
+              Создавай сайты через русский язык. Быстрее конструкторов и кодинга в 30 раз.
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button asChild size="lg" className="text-lg px-8">
-                <Link to="/contact">
-                  <Icon name="MessageSquare" size={20} className="mr-2" />
-                  {t('hero.cta1')}
-                </Link>
+              <Button size="lg" className="text-lg px-8">
+                <Icon name="MessageSquare" size={20} className="mr-2" />
+                Создать сайт
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg px-8">
-                <Link to="/services">
-                  <Icon name="ArrowRight" size={20} className="mr-2" />
-                  {t('hero.cta2')}
-                </Link>
+              <Button size="lg" variant="outline" className="text-lg px-8">
+                <Icon name="ArrowRight" size={20} className="mr-2" />
+                Узнать больше
               </Button>
             </div>
           </AnimatedSection>
@@ -48,20 +40,20 @@ export function Hero() {
           <AnimatedSection delay={0.3}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-border/40">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">150+</div>
-                <div className="text-sm text-muted-foreground">{t('hero.stat1')}</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">1000+</div>
+                <div className="text-sm text-muted-foreground">Созданных сайтов</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">{t('hero.stat2')}</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">30x</div>
+                <div className="text-sm text-muted-foreground">Быстрее обычного</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">99.9%</div>
-                <div className="text-sm text-muted-foreground">{t('hero.stat3')}</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">1 мин</div>
+                <div className="text-sm text-muted-foreground">Время создания</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">{t('hero.stat4')}</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">🚀</div>
+                <div className="text-sm text-muted-foreground">Космическая скорость</div>
               </div>
             </div>
           </AnimatedSection>

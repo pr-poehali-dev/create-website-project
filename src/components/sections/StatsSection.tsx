@@ -1,29 +1,26 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/ui/animated-section";
 
 export function StatsSection() {
-  const { t } = useLanguage();
-
   const stats = [
     {
-      value: "150+",
-      label: t('hero.stat1'),
-      description: "Successfully completed projects worldwide"
+      value: "1000+",
+      label: "Созданно сайтов",
+      description: "Успешно реализованные проекты по всему миру"
     },
     {
-      value: "50+",
-      label: t('hero.stat2'),
-      description: "Clients across different industries"
+      value: "30x",
+      label: "Быстрее обычного",
+      description: "Скорость создания сайтов по сравнению с традиционным кодингом"
     },
     {
-      value: "99.9%",
-      label: t('hero.stat3'),
-      description: "System uptime and reliability"
+      value: "1 мин",
+      label: "Время создания",
+      description: "Среднее время на создание полноценного сайта"
     },
     {
-      value: "24/7",
-      label: t('hero.stat4'),
-      description: "Technical support coverage"
+      value: "100%",
+      label: "На русском языке",
+      description: "Полная поддержка русскоязычного интерфейса"
     }
   ];
 
@@ -32,10 +29,10 @@ export function StatsSection() {
       <div className="container mx-auto px-4">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Impact in Numbers
+            Наши достижения в цифрах
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Trusted by businesses worldwide for delivering excellence in AI and cryptography solutions
+            Нам доверяют компании по всему миру для создания качественных веб-решений
           </p>
         </AnimatedSection>
 
