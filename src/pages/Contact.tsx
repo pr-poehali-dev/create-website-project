@@ -20,7 +20,7 @@ export default function Contact() {
       icon: "Mail",
       title: t('contact.methods.email.title'),
       description: t('contact.methods.email.description'),
-      value: "info@ecol.com"
+      value: "info@ekol.com"
     },
     {
       icon: "Phone",
@@ -114,6 +114,88 @@ export default function Contact() {
                 </Card>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Information */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Реквизиты компании</h2>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-center text-xl">
+                  Hong Kong Yalu King International Trading Co., Limited
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="Building2" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Полное наименование:</h4>
+                      <p className="text-muted-foreground">Hong Kong Yalu King International Trading Co., Limited</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="MapPin" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Юридический адрес:</h4>
+                      <p className="text-muted-foreground">Hong Kong Special Administrative Region</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="FileText" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Регистрация:</h4>
+                      <p className="text-muted-foreground">Зарегистрировано в Гонконге</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="Briefcase" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Вид деятельности:</h4>
+                      <p className="text-muted-foreground">Международная торговля и экспорт</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="Globe" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Регион работы:</h4>
+                      <p className="text-muted-foreground">Международные поставки, экспорт в страны СНГ</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Icon name="Mail" size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Контактная информация:</h4>
+                      <p className="text-muted-foreground">info@ekol.com</p>
+                      <p className="text-muted-foreground">+86 138 0013 8000</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
