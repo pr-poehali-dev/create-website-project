@@ -7,12 +7,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Icon from '@/components/ui/icon';
 import { useAuth, Project } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { NewsFeed } from '@/components/news/NewsFeed';
 
 export default function Dashboard() {
   const { user, projects, logout } = useAuth();
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'profile' | 'news'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'profile'>('overview');
 
   if (!user) {
     return null;
@@ -107,7 +106,6 @@ export default function Dashboard() {
                   {[
                     { id: 'overview', icon: 'LayoutDashboard', label: t('dashboard.nav.overview') },
                     { id: 'projects', icon: 'Briefcase', label: t('dashboard.nav.projects') },
-                    { id: 'news', icon: 'Newspaper', label: t('dashboard.nav.news') },
                     { id: 'profile', icon: 'User', label: t('dashboard.nav.profile') }
                   ].map((item) => (
                     <Button
@@ -438,12 +436,6 @@ export default function Dashboard() {
                     </Card>
                   </div>
                 </div>
-              </div>
-            )}
-
-            {activeTab === 'news' && (
-              <div className="space-y-6">
-                <NewsFeed variant="full" maxItems={12} />
               </div>
             )}
           </div>

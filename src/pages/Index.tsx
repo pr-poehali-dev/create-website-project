@@ -14,7 +14,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TeamSection } from "@/components/team/TeamSection";
 import { CallbackModal } from "@/components/marketing/CallbackModal";
 import { ECOLLogo } from "@/components/branding/ECOLLogo";
-import { NewsFeed } from "@/components/news/NewsFeed";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
@@ -712,13 +711,6 @@ export default function Index() {
 
       {/* Team Section */}
       <TeamSection />
-
-      {/* News Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <NewsFeed variant="compact" maxItems={6} showFilters={false} />
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 to-black text-white py-16 relative overflow-hidden">
