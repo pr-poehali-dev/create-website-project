@@ -179,47 +179,7 @@ const translations = {
     'dashboard.project.saving': 'Saving...',
     'dashboard.project.update': 'Update Project',
     'dashboard.project.cancel': 'Cancel',
-    'dashboard.project.error': 'Failed to save project',
-
-    // Callback Modal
-    'callback.title': 'Get Free Consultation',
-    'callback.subtitle': 'Leave your contact details and we\'ll call you back within 2 hours',
-    'callback.offer.badge': '🔥 Limited Time Offer',
-    'callback.offer.description': 'Free project assessment and 30-minute consultation with our AI experts',
-    'callback.form.name': 'Full Name',
-    'callback.form.phone': 'Phone Number',
-    'callback.form.company': 'Company (optional)',
-    'callback.form.timeSlot': 'Preferred Call Time',
-    'callback.form.selectTime': 'Select time slot',
-    'callback.form.interest': 'Service Interest',
-    'callback.form.selectService': 'Select service',
-    'callback.form.submit': 'Request Callback',
-    'callback.form.submitting': 'Sending...',
-    'callback.form.cancel': 'Cancel',
-    'callback.guarantee.title': '100% Privacy Guarantee',
-    'callback.guarantee.description': 'Your information is protected and will never be shared with third parties',
-    'callback.success.title': 'Request Submitted!',
-    'callback.success.message': 'Our team will contact you within the next 2 hours during business hours.',
-    'callback.success.timing': 'Expected call time: within 2 hours',
-
-    // Team Section
-    'team.title': 'Our Expert Team',
-    'team.subtitle': 'Meet our talented Chinese tech specialists bringing cutting-edge innovation from China\'s tech hubs',
-    'team.chinaFocus': 'China Tech Excellence',
-    'team.specialization': 'Specialization',
-    'team.expertise': 'Expertise',
-    'team.positions.cto': 'Chief Technology Officer',
-    'team.positions.dataScientist': 'Senior Data Scientist', 
-    'team.positions.architect': 'Software Architect',
-    'team.positions.security': 'Cybersecurity Expert',
-    'team.positions.blockchain': 'Blockchain Developer',
-    'team.positions.nlp': 'NLP Engineer',
-    'team.positions.devops': 'DevOps Engineer',
-    'team.positions.pm': 'Technical Project Manager',
-    'team.stats.experts': 'Chinese Experts',
-    'team.stats.experience': 'Combined Years',
-    'team.stats.cities': 'Tech Cities',
-    'team.stats.chinese': 'Chinese Team'
+    'dashboard.project.error': 'Failed to save project'
   },
 
   ru: {

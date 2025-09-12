@@ -11,15 +11,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { LoginDialog } from "@/components/auth/LoginDialog";
 import { RegisterDialog } from "@/components/auth/RegisterDialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { TeamSection } from "@/components/team/TeamSection";
-import { CallbackModal } from "@/components/marketing/CallbackModal";
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const [showCallback, setShowCallback] = useState(false);
   const { t, language } = useLanguage();
   const { user, logout } = useAuth();
 
@@ -27,20 +24,8 @@ export default function Index() {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     setIsVisible(true);
-    
-    // Show callback modal after 45 seconds for non-authenticated users
-    if (!user) {
-      const timer = setTimeout(() => {
-        setShowCallback(true);
-      }, 45000);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        clearTimeout(timer);
-      };
-    }
-    
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [user]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -713,9 +698,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <TeamSection />
-
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 to-black text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
@@ -812,11 +794,6 @@ export default function Index() {
           setShowRegister(false);
           setShowLogin(true);
         }}
-      />
-
-      <CallbackModal
-        isOpen={showCallback}
-        onClose={() => setShowCallback(false)}
       />
     </div>
   );
