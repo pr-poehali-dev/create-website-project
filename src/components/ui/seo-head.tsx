@@ -21,7 +21,7 @@ export default function SEOHead({
   const { language } = useLanguage();
   
   useEffect(() => {
-    const fullTitle = `${title} | ECOL - AI & Cryptography Solutions`;
+    const fullTitle = `${title} | EKOL Technologies - AI & Cryptography Solutions`;
     
     document.title = fullTitle;
     
@@ -47,7 +47,7 @@ export default function SEOHead({
 
     updateMeta('description', description);
     if (keywords) updateMeta('keywords', keywords);
-    updateMeta('author', 'ECOL - AI & Cryptography Solutions');
+    updateMeta('author', 'EKOL Technologies - AI & Cryptography Solutions');
     updateMeta('robots', 'index, follow');
     
     document.documentElement.lang = language;

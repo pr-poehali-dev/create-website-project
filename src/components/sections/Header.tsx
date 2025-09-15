@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LoginDialog } from "@/components/auth/LoginDialog";
 import { RegisterDialog } from "@/components/auth/RegisterDialog";
-import { ECOLLogo } from "@/components/branding/ECOLLogo";
+
 import Icon from "@/components/ui/icon";
 import ThemeToggle from "@/components/ui/theme-toggle";
 import { LanguageSelector } from "@/components/ui/language-selector";
@@ -34,8 +34,8 @@ export function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <ECOLLogo size="sm" />
-              <span className="text-xl font-bold">ECOL</span>
+              <Icon name="Rocket" size={32} className="text-primary" />
+              <span className="text-xl font-bold">EKOL Technologies</span>
             </Link>
 
             {/* Desktop Navigation */}

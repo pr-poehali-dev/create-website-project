@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ECOLLogo } from "@/components/branding/ECOLLogo";
+
 import Icon from "@/components/ui/icon";
 
 export function Footer() {
@@ -34,8 +34,8 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <ECOLLogo className="h-8 w-8" />
-              <span className="text-xl font-bold">ECOL</span>
+              <Icon name="Rocket" size={32} className="text-primary" />
+              <span className="text-xl font-bold">EKOL Technologies</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
               {t('footer.description')}
