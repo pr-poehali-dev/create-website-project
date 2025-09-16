@@ -21,7 +21,7 @@ export default function About() {
       <section className="relative py-24 overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-secondary/5">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {t('page.about.title') || 'About ECOL'}
+            {t('page.about.title') || 'About EKOL Technologies'}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             {t('page.about.subtitle') || 'International trading company specializing in high-quality products from Asia'}

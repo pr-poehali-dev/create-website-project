@@ -93,7 +93,7 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Icon name="Mail" size={16} />
-                <span>info@ecol.com</span>
+                <span>info@ekol-tech.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="Phone" size={16} />
@@ -110,7 +110,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border/40 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 ECOL. {t('footer.rights')}
+            © 2024 EKOL Technologies. {t('footer.rights')}
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link 

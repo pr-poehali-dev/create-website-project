@@ -65,7 +65,7 @@ export default function Dashboard() {
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">E</span>
                 </div>
-                <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">ECOL</span>
+                <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">EKOL Technologies</span>
               </div>
               <div className="hidden md:block h-6 w-px bg-border"></div>
               <h1 className="text-xl font-semibold hidden md:block">{t('dashboard.title')}</h1>

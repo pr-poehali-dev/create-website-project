@@ -1,8 +1,8 @@
-import { ECOLBrandShowcase } from "@/components/branding/ECOLLogo";
+import { EKOLBrandShowcase } from "@/components/branding/ECOLLogo";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSelector } from "@/components/ui/language-selector";
-import { ECOLLogo } from "@/components/branding/ECOLLogo";
+import { EKOLLogo } from "@/components/branding/ECOLLogo";
 import Icon from "@/components/ui/icon";
 
 export default function Branding() {
@@ -14,7 +14,7 @@ export default function Branding() {
       <nav className="border-b border-white/10 bg-background/80 backdrop-blur-xl sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <ECOLLogo variant="compact" size="md" />
+            <EKOLLogo variant="compact" size="md" />
             <div className="flex items-center space-x-4">
               <Button 
                 variant="ghost" 
@@ -31,7 +31,7 @@ export default function Branding() {
       </nav>
 
       {/* Brand Showcase */}
-      <ECOLBrandShowcase />
+      <EKOLBrandShowcase />
 
       {/* Usage Guidelines */}
       <section className="py-24 bg-muted/30">

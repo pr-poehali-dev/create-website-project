@@ -18,7 +18,7 @@ const translations = {
 
     // Hero Section
     'hero.title': 'Drive Digital Transformation with AI and Cryptographic Security',
-    'hero.subtitle': 'ECOL delivers cutting-edge Artificial Intelligence and cryptographic solutions from Hong Kong to the world. We empower businesses to innovate, optimize operations, and build unbreakable trust in the digital age.',
+    'hero.subtitle': 'EKOL Technologies delivers cutting-edge Artificial Intelligence and cryptographic solutions from Hong Kong to the world. We empower businesses to innovate, optimize operations, and build unbreakable trust in the digital age.',
     'hero.cta1': 'Discuss Your Project',
     'hero.cta2': 'Request a Consultation',
     'hero.stat1': 'Projects Delivered',
@@ -39,7 +39,7 @@ const translations = {
     'services.global.description': 'Worldwide deployment and scaling with international compliance standards.',
 
     // Advantages Section
-    'advantages.title': 'Why Choose ECOL',
+    'advantages.title': 'Why Choose EKOL Technologies',
     'advantages.subtitle': 'Strategic advantages that set us apart',
     'advantages.efficiency.title': 'Unmatched Efficiency',
     'advantages.efficiency.description': 'Streamlined processes and rapid deployment',
@@ -63,14 +63,14 @@ const translations = {
     'portfolio.process.title': 'Our Global Process',
 
     // About Section
-    'about.title': 'ECOL: Your Global Technology Partner',
+    'about.title': 'EKOL Technologies: Your Global Technology Partner',
     'about.location': 'Based in Hong Kong',
     'about.subtitle': 'A team of experts specializing in AI and cryptographic security, providing innovative, world-class solutions for businesses operating on the international stage',
     'about.mission.title': 'Our Mission',
     'about.mission.description': 'To empower companies worldwide to streamline operations, make smarter decisions, and protect their critical assets through transformative and secure digital technologies, delivered to the highest standard of excellence.',
     'about.hub.title': 'Strategic Hong Kong Hub',
     'about.hub.description': 'Our strategic location in Hong Kong and collaborative relationships with major international and Chinese technology firms provide us with unique market insights, advanced technological capabilities, and robust infrastructure.',
-    'about.why.title': 'Why Choose ECOL?',
+    'about.why.title': 'Why Choose EKOL Technologies?',
 
     // Contact Section
     'contact.title': 'Get in Touch',
@@ -97,11 +97,11 @@ const translations = {
     'footer.services': 'Services',
     'footer.company': 'Company',
     'footer.legal': 'Legal',
-    'footer.copyright': '2024 ECOL. All rights reserved. | Made with ❤️ in Hong Kong',
+    'footer.copyright': '2024 EKOL Technologies. All rights reserved. | Made with ❤️ in Hong Kong',
 
     // Auth
     'auth.login.title': 'Sign In',
-    'auth.login.subtitle': 'Access your ECOL dashboard',
+    'auth.login.subtitle': 'Access your EKOL Technologies dashboard',
     'auth.login.email': 'Email',
     'auth.login.password': 'Password',
     'auth.login.submit': 'Sign In',
@@ -110,7 +110,7 @@ const translations = {
     'auth.login.noAccount': "Don't have an account?",
     
     'auth.register.title': 'Create Account',
-    'auth.register.subtitle': 'Join ECOL to manage your projects',
+    'auth.register.subtitle': 'Join EKOL Technologies to manage your projects',
     'auth.register.submit': 'Create Account',
     'auth.register.loading': 'Creating account...',
     'auth.register.error': 'Registration failed',
@@ -128,7 +128,7 @@ const translations = {
     // Dashboard
     'dashboard.title': 'Client Dashboard',
     'dashboard.welcome': 'Welcome',
-    'dashboard.welcomeSubtitle': 'Here\'s an overview of your projects and progress with ECOL.',
+    'dashboard.welcomeSubtitle': 'Here\'s an overview of your projects and progress with EKOL Technologies.',
     'dashboard.newProject': 'New Project',
     'dashboard.nav.overview': 'Overview',
     'dashboard.nav.projects': 'Projects',
@@ -168,7 +168,7 @@ const translations = {
     
     'dashboard.project.create': 'Create New Project',
     'dashboard.project.edit': 'Edit Project',
-    'dashboard.project.createDesc': 'Start a new project with ECOL',
+    'dashboard.project.createDesc': 'Start a new project with EKOL Technologies',
     'dashboard.project.editDesc': 'Update project details',
     'dashboard.project.name': 'Project Name',
     'dashboard.project.description': 'Description',
@@ -262,7 +262,7 @@ const translations = {
 
     // Hero Section
     'hero.title': 'Ускорьте цифровую трансформацию с ИИ и криптографической безопасностью',
-    'hero.subtitle': 'ECOL предлагает передовые решения в области искусственного интеллекта и криптографии из Гонконга для всего мира. Мы помогаем бизнесу внедрять инновации, оптимизировать операции и выстраивать безупречное доверие в цифровую эпоху.',
+    'hero.subtitle': 'EKOL Technologies предлагает передовые решения в области искусственного интеллекта и криптографии из Гонконга для всего мира. Мы помогаем бизнесу внедрять инновации, оптимизировать операции и выстраивать безупречное доверие в цифровую эпоху.',
     'hero.cta1': 'Обсудить проект',
     'hero.cta2': 'Заказать консультацию',
     'hero.stat1': 'Проектов выполнено',
@@ -283,7 +283,7 @@ const translations = {
     'services.global.description': 'Всемирное развертывание и масштабирование с международными стандартами соответствия.',
 
     // Advantages Section
-    'advantages.title': 'Почему выбирают ECOL',
+    'advantages.title': 'Почему выбирают EKOL Technologies',
     'advantages.subtitle': 'Стратегические преимущества, которые выделяют нас',
     'advantages.efficiency.title': 'Непревзойденная эффективность',
     'advantages.efficiency.description': 'Оптимизированные процессы и быстрое развертывание',
@@ -307,14 +307,14 @@ const translations = {
     'portfolio.process.title': 'Наш глобальный процесс',
 
     // About Section
-    'about.title': 'ECOL: Ваш глобальный технологический партнер',
+    'about.title': 'EKOL Technologies: Ваш глобальный технологический партнер',
     'about.location': 'Базируется в Гонконге',
     'about.subtitle': 'Команда экспертов, специализирующаяся на ИИ и криптографической безопасности, предоставляющая инновационные решения мирового класса для бизнеса, работающего на международной арене',
     'about.mission.title': 'Наша миссия',
     'about.mission.description': 'Давать компаниям по всему миру возможность оптимизировать операции, принимать более обоснованные решения и защищать свои критически важные активы с помощью преобразующих и безопасных цифровых технологий, предоставляемых по высшему стандарту качества.',
     'about.hub.title': 'Стратегический хаб в Гонконге',
     'about.hub.description': 'Наше стратегическое расположение в Гонконге и сотрудничество с крупными международными и китайскими технологическими компаниями предоставляют нам уникальные рыночные insights, передовые технологические возможности и надежную инфраструктуру.',
-    'about.why.title': 'Почему выбирают ECOL?',
+    'about.why.title': 'Почему выбирают EKOL Technologies?',
 
     // Contact Section
     'contact.title': 'Связаться с нами',
@@ -341,7 +341,7 @@ const translations = {
     'footer.services': 'Услуги',
     'footer.company': 'Компания',
     'footer.legal': 'Юридическое',
-    'footer.copyright': '2024 ECOL. Все права защищены. | Создано с ❤️ в Гонконге'
+    'footer.copyright': '2024 EKOL Technologies. Все права защищены. | Создано с ❤️ в Гонконге'
   },
 
   zh: {
@@ -353,7 +353,7 @@ const translations = {
 
     // Hero Section
     'hero.title': '借助人工智能和密码学安全推动数字化转型',
-    'hero.subtitle': 'ECOL 从香港向全世界提供尖端的人工智能和密码学解决方案。我们帮助企业创新、优化运营，并在数字时代建立不可动摇的信任。',
+    'hero.subtitle': 'EKOL Technologies 从香港向全世界提供尖端的人工智能和密码学解决方案。我们帮助企业创新、优化运营，并在数字时代建立不可动摇的信任。',
     'hero.cta1': '讨论您的项目',
     'hero.cta2': '申请咨询',
     'hero.stat1': '已交付项目',
@@ -374,7 +374,7 @@ const translations = {
     'services.global.description': '符合国际合规标准的全球部署和扩展。',
 
     // Advantages Section
-    'advantages.title': '为什么选择 ECOL',
+    'advantages.title': '为什么选择 EKOL Technologies',
     'advantages.subtitle': '让我们脱颖而出的战略优势',
     'advantages.efficiency.title': '无与伦比的效率',
     'advantages.efficiency.description': '精简流程和快速部署',
@@ -398,14 +398,14 @@ const translations = {
     'portfolio.process.title': '我们的全球流程',
 
     // About Section
-    'about.title': 'ECOL：您的全球技术合作伙伴',
+    'about.title': 'EKOL Technologies：您的全球技术合作伙伴',
     'about.location': '总部位于香港',
     'about.subtitle': '专门从事 AI 和密码学安全的专家团队，为在国际舞台上运营的企业提供创新的世界级解决方案',
     'about.mission.title': '我们的使命',
     'about.mission.description': '通过变革性和安全的数字技术，让全世界的公司能够简化运营、做出更明智的决策并保护其关键资产，以最高的卓越标准交付。',
     'about.hub.title': '香港战略枢纽',
     'about.hub.description': '我们在香港的战略位置以及与主要国际和中国技术公司的合作关系为我们提供了独特的市场洞察、先进的技术能力和强大的基础设施。',
-    'about.why.title': '为什么选择 ECOL？',
+    'about.why.title': '为什么选择 EKOL Technologies？',
 
     // Contact Section
     'contact.title': '联系我们',
@@ -432,7 +432,7 @@ const translations = {
     'footer.services': '服务',
     'footer.company': '公司',
     'footer.legal': '法律',
-    'footer.copyright': '2024 ECOL。版权所有。| 在香港用 ❤️ 制作'
+    'footer.copyright': '2024 EKOL Technologies。版权所有。| 在香港用 ❤️ 制作'
   }
 };
 

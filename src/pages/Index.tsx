@@ -733,7 +733,7 @@ export default function Index() {
                 <div className="w-12 h-12 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center">
                   <span className="text-white font-bold text-2xl">E</span>
                 </div>
-                <span className="font-bold text-3xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">ECOL</span>
+                <span className="font-bold text-3xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">EKOL Technologies</span>
               </div>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 Driving digital transformation with AI and cryptographic security from Hong Kong to the world.
